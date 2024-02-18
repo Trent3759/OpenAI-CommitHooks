@@ -1,0 +1,49 @@
+#!/usr/bin/env py
+
+#created by Trenton Scott
+#This script is used to generate a commit message using OpenAI's GPT-3.5-turbo model
+#It is intended to be used as a pre-commit hook for git
+
+import os
+from openai import OpenAI
+import sys
+import ctypes
+
+file = '.git/COMMIT_EDITMSG'
+diff = os.popen('git diff --staged').read()
+
+client = OpenAI(api_key=os.environ.get("OPENAIAPIKEY"))
+
+commit_msg = ""
+
+with open(file, 'r') as f:
+    #read file
+    commit_msg = f.read()
+
+messages = [
+            {"role": "system", "content": "I generate a commit message based on a git diff that the user passes in."}, 
+            {"role": "user", "content": "The diff is: " + diff}
+        ]
+
+response = ctypes.windll.user32.MessageBoxW(0, "Do would you like OpenAI to generate a commit message?", "Commit Message", 1)
+
+if response != 1:
+    exit(0)
+
+response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
+            max_tokens=200
+        )
+
+#parse response
+commit_msg += ("\n" + response.choices[0].message.content)
+
+response = ctypes.windll.user32.MessageBoxW(0, "Confirm the below or click cancel to use previous message.\n\n" + commit_msg, "Commit Message", 1)
+
+if response != 1:
+    exit(0)
+
+with open(file, 'w') as f:
+    #append commit message to file
+    f.write(commit_msg)
