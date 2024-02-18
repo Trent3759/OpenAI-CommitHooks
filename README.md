@@ -9,6 +9,7 @@ Before using these scripts, ensure you have the following:
 - Python installed on your system.
 - OpenAI API key set up and configured in the environment variable `OPENAIAPIKEY`.
 - Git installed on your system.
+- Install/Update python libraries ```py -m pip install openai```
 
 ## Installation
 
