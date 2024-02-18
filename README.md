@@ -25,6 +25,11 @@ Before using these scripts, ensure you have the following:
    ```bash
    chmod +x /path/to/your/project/.git/hooks/<commit-hook-file>
    ```
+You may have to change the first line in the commit hook file - 
+   ```bash
+      #!/usr/bin/env py
+   ```
+   My current binding for python is 'py'. Set yours here.
 ## Hooks
 ### prepare-commit-msg
 This generates commit messages for your commits for you. If text is already entered, it will append the generated text on the end. Each time you commit you will be asked if you would like to generate a message. For each generated message, the user must confirm the    message before it is used. 
