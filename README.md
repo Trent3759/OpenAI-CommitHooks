@@ -26,8 +26,7 @@ Before using these scripts, ensure you have the following:
    chmod +x /path/to/your/project/.git/hooks/<commit-hook-file>
    ```
 ## Hooks
-
-1. Prepare Commit Message
+### Prepare Commit Message
 This generates commit messages for your commits for you. If text is already entered, it will append the generated text on the end. Each time you commit you will be asked if you would like to generate a message. For each generated message, the user must confirm the    message before it is used. 
 
 ## License
