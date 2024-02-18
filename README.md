@@ -17,7 +17,7 @@ Before using this script, ensure you have the following:
    ```bash
    git clone https://github.com/Trent3759/OpenAI-CommitHooks.git
    ```
-2. Move the pre-commit file to your project's .git/hooks/ directory.
+2. Move the prepare-commit-msg file to your project's .git/hooks/ directory.
    ```bash
    mv prepare-commit-msg /path/to/your/project/.git/hooks/
    ```
