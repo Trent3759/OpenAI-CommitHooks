@@ -16,19 +16,19 @@ Before using this script, ensure you have the following:
 
    ```bash
    git clone https://github.com/trentonscott/git-commit-message-generator.git
-
-Move the pre-commit file to your project's .git/hooks/ directory.
+   ```
+2. Move the pre-commit file to your project's .git/hooks/ directory.
    ```bash
    mv pre-commit /path/to/your/project/.git/hooks/
-
-Make the script executable.
+   ```
+3. Make the script executable.
    ```bash
    chmod +x /path/to/your/project/.git/hooks/pre-commit
-
-Usage
+   ```
+## Usage
 After installing the pre-commit hook, every time you commit changes, this script will prompt you to generate a commit message using OpenAI's GPT-3.5-turbo model. It will show you the diff of the staged files and suggest a commit message based on the changes. You can either confirm the suggested message or opt to use a previous message.
 
-License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
